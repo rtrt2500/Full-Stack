@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Balance App</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 40px;
+    }
+    h1 {
+        font-size: 40px;
+    }
+    label {
+        font-size: 22px;
+        display: block;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+    input {
+        width: 350px;
+        padding: 12px;
+        font-size: 18px;
+        border: 2px solid #ccc;
+        border-radius: 6px;
+    }
+    .buttons {
+        margin-top: 30px;
+    }
+    button {
+        width: 160px;
+        padding: 15px;
+        font-size: 22px;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        cursor: pointer;
+    }
+    .deposit {
+        background: #1e66ff;
+        margin-right: 20px;
+    }
+    .withdraw {
+        background: #ff2b2b;
+    }
+    .error {
+        color: red;
+        font-size: 26px;
+        margin-top: 30px;
+        display: none;
+    }
+</style>
+</head>
+<body>
+<h1>Balance: $<span id="balance">1000</span></h1>
+<label>Amount</label>
+<input type="number" id="amount">
+<div class="buttons">
+    <button class="deposit" onclick="deposit()">Deposit</button>
+    <button class="withdraw" onclick="withdraw()">Withdraw</button>
+</div>
+<div class="error" id="error">Invalid amount!</div>
+<script>
+let balance = 1000;
+function deposit() {
+    let amt = Number(document.getElementById("amount").value);
+    if (amt <= 0) {
+        showError();
+        return;
+    }
+    balance += amt;
+    update();
+}
+function withdraw() {
+    let amt = Number(document.getElementById("amount").value);
+    if (amt <= 0 || amt > balance) {
+        showError();
+        return;
+    }
+    balance -= amt;
+    update();
+}
+function update() {
+    document.getElementById("balance").innerText = balance;
+    document.getElementById("amount").value = "";
+    document.getElementById("error").style.display = "none";
+}
+function showError() {
+    document.getElementById("error").style.display = "block";
+}
+</script>
+</body>
+</html>
