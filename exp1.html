@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Registration</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 40px;
+    }
+    .form-group {
+        width: 350px;
+        margin-bottom: 20px;
+    }
+    label {
+        font-size: 18px;
+        display: block;
+        margin-bottom: 5px;
+    }
+    input {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+    }
+    input:invalid {
+        border-color: red;
+    }
+    input:valid {
+        border-color: green;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background: black;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        float: right;
+    }
+    .note {
+        color: red;
+        font-size: 14px;
+    }
+</style>
+</head>
+<body>
+<form>
+    <div class="form-group">
+        <label>Full Name:</label>
+        <input type="text" minlength="9" maxlength="50" required>
+        <div class="note">Must contain 9–50 letters</div>
+    </div>
+    <div class="form-group">
+        <label>Email:</label>
+        <input type="email" required>
+        <div class="note">Valid email required</div>
+    </div>
+    <div class="form-group">
+        <label>Age:</label>
+        <input type="number" min="16" max="30" required>
+        <div class="note">Age 16–30 only</div>
+    </div>
+    <button type="submit">Register</button>
+</form>
+</body>
+</html>
